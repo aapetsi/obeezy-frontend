@@ -1,9 +1,10 @@
 import React from 'react'
+import { Typography } from '@material-ui/core'
 
 const App = () => {
   return (
     <div>
-      <h1>Welcome to Obeezy reads</h1>
+      <Typography>Welcome to Obeezy reads</Typography>
     </div>
   )
 }
