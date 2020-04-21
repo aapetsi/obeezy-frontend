@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:aapetsi/obeezy-frontend.git",
-  "author": "aapetsi <apetsiampiah@gmail.com>",
+  "author": "Apetsi Ampiah & Jerry Otoo",
   "license": "MIT",
   "scripts": {
     "start": "parcel public/index.html"
