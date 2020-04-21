@@ -1,0 +1,17 @@
+{
+  "name": "obeezy-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:aapetsi/obeezy-frontend.git",
+  "author": "aapetsi <apetsiampiah@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel public/index.html"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
