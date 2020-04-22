@@ -2,15 +2,22 @@ import React, { useState } from 'react'
 
 const Login = () => {
   const [user, setUser] = useState({ email: '', password: '' })
+
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(user)
+  }
+
   return (
     <div>
       <p>Login component</p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
-          type='text'
+          type='email'
           placeholder='email'
           value={user.email}
           onChange={handleChange}
@@ -25,6 +32,8 @@ const Login = () => {
           name='password'
           required
         />
+
+        <button>Login</button>
       </form>
     </div>
   )
