@@ -1,10 +1,10 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import AppRouter from '../routers/AppRouter'
 
 const App = () => {
   return (
     <div>
-      <Typography>Welcome to Obeezy reads</Typography>
+      <AppRouter />
     </div>
   )
 }
