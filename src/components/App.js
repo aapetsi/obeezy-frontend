@@ -3,9 +3,11 @@ import AppRouter from '../routers/AppRouter'
 
 const App = () => {
   return (
-    <div>
-      <AppRouter />
-    </div>
+    <React.StrictMode>
+      <div>
+        <AppRouter />
+      </div>
+    </React.StrictMode>
   )
 }
 
