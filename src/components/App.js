@@ -6,11 +6,9 @@ import store from '../store'
 const App = () => {
   return (
     <React.StrictMode>
-      <div>
-        <Provider store={store}>
-          <AppRouter />
-        </Provider>
-      </div>
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>
     </React.StrictMode>
   )
 }
