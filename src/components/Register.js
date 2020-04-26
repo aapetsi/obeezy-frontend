@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { CircularProgress } from '@material-ui/core'
+import { register } from '../actions'
 
-const Register = () => {
+const Register = (props) => {
+  const dispatch = useDispatch()
+  const userState = useSelector((state) => state.user)
+
+  const { history } = props
+
   const [user, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    password2: '',
+    username: 'johndoe',
+    email: 'johndoe@gmail.com',
+    password: '123456',
+    password2: '123456',
   })
 
   const handleChange = (e) => {
@@ -14,10 +22,11 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(user)
+    dispatch(register(user, history))
   }
   return (
     <div>
+      {userState.isLoading && <CircularProgress />}
       <p>Register component</p>
       <form onSubmit={handleSubmit}>
         <input
