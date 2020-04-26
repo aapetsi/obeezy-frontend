@@ -10,10 +10,10 @@ const Register = (props) => {
   const { history } = props
 
   const [user, setUser] = useState({
-    username: 'johndoe',
-    email: 'johndoe@gmail.com',
-    password: '123456',
-    password2: '123456',
+    username: '',
+    email: '',
+    password: '',
+    password2: '',
   })
 
   const handleChange = (e) => {
