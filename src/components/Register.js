@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  makeStyles,
   CircularProgress,
   Button,
   FormControl,
@@ -8,10 +9,15 @@ import {
   InputLabel,
   Input,
   InputAdornment,
-  TextField,
 } from '@material-ui/core'
-import { AccountCircle } from '@material-ui/icons'
+import { AccountCircle, AlternateEmail, Lock } from '@material-ui/icons'
 import { register } from '../actions'
+
+const useStyles = makeStyles({
+  inputs: {
+    letterSpacing: '1.1px',
+  },
+})
 
 const Register = (props) => {
   const dispatch = useDispatch()
@@ -34,73 +40,89 @@ const Register = (props) => {
     e.preventDefault()
     dispatch(register(user, history))
   }
+
   return (
     <div>
       {userState.isLoading && <CircularProgress />}
       <Typography variant='h5' gutterBottom>
         CREATE A NEW ACCOUNT
       </Typography>
-      <FormControl>
-        <InputLabel htmlFor='input-with-icon-adornment'>Email</InputLabel>
-        <Input
-          onChange={handleChange}
-          name='email'
-          required={true}
-          autoFocus={true}
-          error={userState.errors.length > 0 ? true : false}
-          id='input-with-icon-adornment'
-          startAdornment={
-            <InputAdornment position='start'>
-              <AccountCircle />
-            </InputAdornment>
-          }
-        />
+      <form onSubmit={handleSubmit}>
+        <FormControl>
+          <InputLabel htmlFor='user-email'>Email</InputLabel>
+          <Input
+            onChange={handleChange}
+            name='email'
+            required={true}
+            autoFocus={true}
+            value={user.email}
+            error={userState.errors.length > 0 ? true : false}
+            id='user-email'
+            startAdornment={
+              <InputAdornment position='start'>
+                <AlternateEmail />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
 
-        {/* <input
-          type='email'
-          placeholder='email'
-          value={user.email}
-          onChange={handleChange}
-          name='email'
-          required
-        /> */}
+        <FormControl>
+          <InputLabel htmlFor='user-username'>Username</InputLabel>
+          <Input
+            onChange={handleChange}
+            name='username'
+            required={true}
+            value={user.username}
+            id='user-username'
+            startAdornment={
+              <InputAdornment position='start'>
+                <AccountCircle />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
 
-        <input
-          type='text'
-          placeholder='username'
-          value={user.username}
-          onChange={handleChange}
-          name='username'
-          required
-        />
+        <FormControl>
+          <InputLabel htmlFor='user-password'>Password</InputLabel>
+          <Input
+            onChange={handleChange}
+            name='password'
+            required={true}
+            value={user.password}
+            id='user-password'
+            type='password'
+            startAdornment={
+              <InputAdornment position='start'>
+                <Lock />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
 
-        <input
-          type='password'
-          placeholder='password'
-          value={user.password}
-          onChange={handleChange}
-          name='password'
-          required
-        />
+        <FormControl>
+          <InputLabel htmlFor='user-confirm-password'>
+            Confirm Password
+          </InputLabel>
+          <Input
+            onChange={handleChange}
+            name='password2'
+            required={true}
+            value={user.password2}
+            type='password'
+            startAdornment={
+              <InputAdornment position='start'>
+                <Lock />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
 
-        <input
-          type='password'
-          placeholder='confirm password'
-          value={user.password2}
-          onChange={handleChange}
-          name='password2'
-          required
-        />
+        <br />
 
-        <Button
-          onClick={handleSubmit}
-          type='submit'
-          variant='contained'
-          color='primary'
-        >
+        <Button type='submit' variant='contained' color='primary'>
           Register
         </Button>
-      </FormControl>
+      </form>
     </div>
   )
 }
