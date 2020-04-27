@@ -1,6 +1,11 @@
 import { REGISTER, LOADING } from '../action-types'
 
-const initialState = { userInfo: {}, isLoading: false, isLoggedin: false }
+const initialState = {
+  userInfo: {},
+  isLoading: false,
+  isLoggedin: false,
+  errors: {},
+}
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {

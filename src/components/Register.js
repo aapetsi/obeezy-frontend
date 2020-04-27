@@ -1,6 +1,16 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CircularProgress } from '@material-ui/core'
+import {
+  CircularProgress,
+  Button,
+  FormControl,
+  Typography,
+  InputLabel,
+  Input,
+  InputAdornment,
+  TextField,
+} from '@material-ui/core'
+import { AccountCircle } from '@material-ui/icons'
 import { register } from '../actions'
 
 const Register = (props) => {
@@ -27,16 +37,33 @@ const Register = (props) => {
   return (
     <div>
       {userState.isLoading && <CircularProgress />}
-      <p>Register component</p>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Typography variant='h5' gutterBottom>
+        CREATE A NEW ACCOUNT
+      </Typography>
+      <FormControl>
+        <InputLabel htmlFor='input-with-icon-adornment'>Email</InputLabel>
+        <Input
+          onChange={handleChange}
+          name='email'
+          required={true}
+          autoFocus={true}
+          error={userState.errors.length > 0 ? true : false}
+          id='input-with-icon-adornment'
+          startAdornment={
+            <InputAdornment position='start'>
+              <AccountCircle />
+            </InputAdornment>
+          }
+        />
+
+        {/* <input
           type='email'
           placeholder='email'
           value={user.email}
           onChange={handleChange}
           name='email'
           required
-        />
+        /> */}
 
         <input
           type='text'
@@ -65,8 +92,15 @@ const Register = (props) => {
           required
         />
 
-        <button>Register</button>
-      </form>
+        <Button
+          onClick={handleSubmit}
+          type='submit'
+          variant='contained'
+          color='primary'
+        >
+          Register
+        </Button>
+      </FormControl>
     </div>
   )
 }
