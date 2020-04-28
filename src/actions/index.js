@@ -1,4 +1,4 @@
-import { REGISTER, LOADING } from '../action-types'
+import { REGISTER, LOADING, SET_ERRORS } from '../action-types'
 import axios from 'axios'
 
 const api = 'https://obeezy-reads.herokuapp.com'
@@ -24,4 +24,9 @@ export const register = (userData, history) => (dispatch) => {
 export const setLoading = (isLoading) => ({
   type: LOADING,
   payload: isLoading,
+})
+
+export const setErrors = (errors) => ({
+  type: SET_ERRORS,
+  paylod: errors
 })
