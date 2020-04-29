@@ -16,8 +16,9 @@ export const register = (userData, history) => (dispatch) => {
       history.push('/dashboard')
     })
     .catch((err) => {
+      const errors = err.response.data
       dispatch(setLoading(false))
-      console.log(err.response)
+      dispatch(setErrors(errors))
     })
 }
 
@@ -28,5 +29,5 @@ export const setLoading = (isLoading) => ({
 
 export const setErrors = (errors) => ({
   type: SET_ERRORS,
-  paylod: errors
+  payload: errors,
 })

@@ -14,8 +14,18 @@ import { AccountCircle, AlternateEmail, Lock } from '@material-ui/icons'
 import { register } from '../actions'
 
 const useStyles = makeStyles({
+  form: {
+    width: '75%',
+    margin: '0 auto',
+    marginTop: '25px',
+    padding: '20px',
+    boxShadow: '0px 0px 39px -2px rgba(0,0,0,0.55)',
+  },
   inputs: {
-    letterSpacing: '1.1px',
+    marginBottom: '15px',
+  },
+  btn: {
+    margin: '0 auto',
   },
 })
 
@@ -26,10 +36,10 @@ const Register = (props) => {
   const { history } = props
 
   const [user, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    password2: '',
+    username: 'johndoe',
+    email: 'johndoe@gmail.com',
+    password: '123456',
+    password2: '123456',
   })
 
   const handleChange = (e) => {
@@ -41,22 +51,24 @@ const Register = (props) => {
     dispatch(register(user, history))
   }
 
+  const classes = useStyles()
+
   return (
     <div>
       {userState.isLoading && <CircularProgress />}
-      <Typography variant='h5' gutterBottom>
-        CREATE A NEW ACCOUNT
+      <Typography align='center' variant='h6' gutterBottom>
+        Create an account
       </Typography>
-      <form onSubmit={handleSubmit}>
+      <form className={classes.form} onSubmit={handleSubmit}>
         <FormControl>
           <InputLabel htmlFor='user-email'>Email</InputLabel>
           <Input
+            className={classes.inputs}
             onChange={handleChange}
             name='email'
             required={true}
             autoFocus={true}
             value={user.email}
-            error={userState.errors.length > 0 ? true : false}
             id='user-email'
             startAdornment={
               <InputAdornment position='start'>
@@ -69,6 +81,7 @@ const Register = (props) => {
         <FormControl>
           <InputLabel htmlFor='user-username'>Username</InputLabel>
           <Input
+            className={classes.inputs}
             onChange={handleChange}
             name='username'
             required={true}
@@ -85,6 +98,7 @@ const Register = (props) => {
         <FormControl>
           <InputLabel htmlFor='user-password'>Password</InputLabel>
           <Input
+            className={classes.inputs}
             onChange={handleChange}
             name='password'
             required={true}
@@ -104,6 +118,7 @@ const Register = (props) => {
             Confirm Password
           </InputLabel>
           <Input
+            className={classes.inputs}
             onChange={handleChange}
             name='password2'
             required={true}
@@ -119,7 +134,12 @@ const Register = (props) => {
 
         <br />
 
-        <Button type='submit' variant='contained' color='primary'>
+        <Button
+          className={classes.btn}
+          type='submit'
+          variant='contained'
+          color='primary'
+        >
           Register
         </Button>
       </form>

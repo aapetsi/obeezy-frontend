@@ -1,4 +1,4 @@
-import { REGISTER, LOADING } from '../action-types'
+import { REGISTER, LOADING, SET_ERRORS } from '../action-types'
 
 const initialState = {
   userInfo: {},
@@ -20,6 +20,12 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: action.payload,
+      }
+
+    case SET_ERRORS:
+      return {
+        ...state,
+        errors: { ...action.payload },
       }
 
     default:
