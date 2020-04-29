@@ -15,15 +15,19 @@ import { register } from '../actions'
 
 const useStyles = makeStyles({
   form: {
-    width: '75%',
+    width: '70%',
+    height: '50vh',
     margin: '0 auto',
-    marginTop: '25px',
+    marginTop: '30px',
     padding: '20px',
     textAlign: 'center',
     boxShadow: '0px 0px 39px -2px rgba(0,0,0,0.55)',
   },
   inputs: {
     marginBottom: '15px',
+  },
+  btn: {
+    marginTop: '40px',
   },
 })
 
