@@ -19,13 +19,11 @@ const useStyles = makeStyles({
     margin: '0 auto',
     marginTop: '25px',
     padding: '20px',
+    textAlign: 'center',
     boxShadow: '0px 0px 39px -2px rgba(0,0,0,0.55)',
   },
   inputs: {
     marginBottom: '15px',
-  },
-  btn: {
-    margin: '0 auto',
   },
 })
 
