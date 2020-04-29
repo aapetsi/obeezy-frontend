@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     marginTop: '30px',
     padding: '20px',
     textAlign: 'center',
-    boxShadow: '0px 0px 39px -2px rgba(0,0,0,0.55)',
+    boxShadow: '0px 0px 11px -2px rgba(0,0,0,0.55)',
   },
   inputs: {
     marginBottom: '15px',
