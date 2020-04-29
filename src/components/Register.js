@@ -16,7 +16,7 @@ import { register } from '../actions'
 const useStyles = makeStyles({
   form: {
     width: '70%',
-    height: '50vh',
+    height: '65vh',
     margin: '0 auto',
     marginTop: '30px',
     padding: '20px',
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     marginBottom: '15px',
   },
   btn: {
-    marginTop: '40px',
+    marginTop: '30%',
   },
 })
 
@@ -38,10 +38,10 @@ const Register = (props) => {
   const { history } = props
 
   const [user, setUser] = useState({
-    username: 'johndoe',
-    email: 'johndoe@gmail.com',
-    password: '123456',
-    password2: '123456',
+    username: '',
+    email: '',
+    password: '',
+    password2: '',
   })
 
   const handleChange = (e) => {
@@ -68,10 +68,11 @@ const Register = (props) => {
             className={classes.inputs}
             onChange={handleChange}
             name='email'
-            required={true}
-            autoFocus={true}
+            required
+            autoFocus
             value={user.email}
             id='user-email'
+            type='email'
             startAdornment={
               <InputAdornment position='start'>
                 <AlternateEmail />
@@ -79,6 +80,9 @@ const Register = (props) => {
             }
           />
         </FormControl>
+        {userState.errors.email && (
+          <Typography variant='caption'>{userState.errors.email}</Typography>
+        )}
 
         <FormControl>
           <InputLabel htmlFor='user-username'>Username</InputLabel>
@@ -96,6 +100,9 @@ const Register = (props) => {
             }
           />
         </FormControl>
+        {userState.errors.username && (
+          <Typography variant='caption'>{userState.errors.username}</Typography>
+        )}
 
         <FormControl>
           <InputLabel htmlFor='user-password'>Password</InputLabel>
@@ -114,6 +121,9 @@ const Register = (props) => {
             }
           />
         </FormControl>
+        {userState.errors.password && (
+          <Typography variant='caption'>{userState.errors.password}</Typography>
+        )}
 
         <FormControl>
           <InputLabel htmlFor='user-confirm-password'>
@@ -133,6 +143,11 @@ const Register = (props) => {
             }
           />
         </FormControl>
+        {userState.errors.password2 && (
+          <Typography variant='caption'>
+            {userState.errors.password2}
+          </Typography>
+        )}
 
         <br />
 
