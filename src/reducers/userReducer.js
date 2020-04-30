@@ -1,4 +1,10 @@
-import { REGISTER, LOADING, SET_ERRORS, CLEAR_ERRORS } from '../action-types'
+import {
+  REGISTER,
+  LOADING,
+  SET_ERRORS,
+  CLEAR_ERRORS,
+  LOGIN,
+} from '../action-types'
 
 const initialState = {
   userInfo: {},
@@ -10,6 +16,13 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case REGISTER:
+      return {
+        ...state,
+        userInfo: action.payload,
+        isLoggedin: true,
+      }
+
+    case LOGIN:
       return {
         ...state,
         userInfo: action.payload,
