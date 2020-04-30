@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core'
 import { AccountCircle, AlternateEmail, Lock } from '@material-ui/icons'
 import { register, clearErrors } from '../actions'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
   form: {
@@ -27,7 +28,8 @@ const useStyles = makeStyles({
     marginBottom: '15px',
   },
   btn: {
-    marginTop: '30%',
+    marginTop: '20%',
+    marginBottom: '20%',
   },
   error: {
     color: 'red',
@@ -170,6 +172,10 @@ const Register = (props) => {
         >
           Register
         </Button>
+        <Typography>Already have an account?</Typography>
+        <Typography>
+          Click <Link to='/'>here</Link> to login
+        </Typography>
       </form>
     </div>
   )
