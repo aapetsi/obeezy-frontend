@@ -1,4 +1,4 @@
-import { REGISTER, LOADING, SET_ERRORS } from '../action-types'
+import { REGISTER, LOADING, SET_ERRORS, CLEAR_ERRORS } from '../action-types'
 import axios from 'axios'
 
 const api = 'https://obeezy-reads.herokuapp.com'
@@ -13,6 +13,7 @@ export const register = (userData, history) => (dispatch) => {
       localStorage.setItem('token', token)
       dispatch({ type: REGISTER, payload: userInfo })
       dispatch(setLoading(false))
+      dispatch(clearErrors())
       history.push('/dashboard')
     })
     .catch((err) => {
@@ -30,4 +31,8 @@ export const setLoading = (isLoading) => ({
 export const setErrors = (errors) => ({
   type: SET_ERRORS,
   payload: errors,
+})
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS,
 })

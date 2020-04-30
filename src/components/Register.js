@@ -11,7 +11,7 @@ import {
   InputAdornment,
 } from '@material-ui/core'
 import { AccountCircle, AlternateEmail, Lock } from '@material-ui/icons'
-import { register } from '../actions'
+import { register, clearErrors } from '../actions'
 
 const useStyles = makeStyles({
   form: {
@@ -29,6 +29,9 @@ const useStyles = makeStyles({
   btn: {
     marginTop: '30%',
   },
+  error: {
+    color: 'red',
+  },
 })
 
 const Register = (props) => {
@@ -38,13 +41,14 @@ const Register = (props) => {
   const { history } = props
 
   const [user, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    password2: '',
+    username: 'johndoe',
+    email: 'johndoe@gmail.com',
+    password: '123456',
+    password2: '123456',
   })
 
   const handleChange = (e) => {
+    dispatch(clearErrors())
     setUser({ ...user, [e.target.name]: e.target.value })
   }
 
@@ -80,8 +84,11 @@ const Register = (props) => {
             }
           />
         </FormControl>
+        <br />
         {userState.errors.email && (
-          <Typography variant='caption'>{userState.errors.email}</Typography>
+          <Typography className={classes.error} variant='caption'>
+            {userState.errors.email}
+          </Typography>
         )}
 
         <FormControl>
@@ -101,7 +108,9 @@ const Register = (props) => {
           />
         </FormControl>
         {userState.errors.username && (
-          <Typography variant='caption'>{userState.errors.username}</Typography>
+          <Typography className={classes.error} variant='caption'>
+            {userState.errors.username}
+          </Typography>
         )}
 
         <FormControl>
@@ -122,7 +131,9 @@ const Register = (props) => {
           />
         </FormControl>
         {userState.errors.password && (
-          <Typography variant='caption'>{userState.errors.password}</Typography>
+          <Typography className={classes.error} variant='caption'>
+            {userState.errors.password}
+          </Typography>
         )}
 
         <FormControl>
@@ -144,7 +155,7 @@ const Register = (props) => {
           />
         </FormControl>
         {userState.errors.password2 && (
-          <Typography variant='caption'>
+          <Typography className={classes.error} variant='caption'>
             {userState.errors.password2}
           </Typography>
         )}
