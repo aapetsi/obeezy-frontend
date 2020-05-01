@@ -10,7 +10,7 @@ import {
   InputAdornment,
 } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearErrors } from '../actions'
+import { clearErrors, login } from '../actions'
 import { AlternateEmail, Lock } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 
@@ -51,7 +51,7 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(user)
+    dispatch(login(user, history))
   }
 
   const classes = useStyles()
@@ -100,6 +100,14 @@ const Login = (props) => {
             }
           />
         </FormControl>
+
+        <br />
+
+        {userState.errors.message && (
+          <Typography className={classes.error} variant='caption'>
+            {userState.errors.message}
+          </Typography>
+        )}
 
         <br />
 

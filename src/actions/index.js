@@ -1,4 +1,10 @@
-import { REGISTER, LOADING, SET_ERRORS, CLEAR_ERRORS } from '../action-types'
+import {
+  REGISTER,
+  LOADING,
+  SET_ERRORS,
+  CLEAR_ERRORS,
+  LOGIN,
+} from '../action-types'
 import axios from 'axios'
 
 const api = 'https://obeezy-reads.herokuapp.com'
