@@ -49,6 +49,11 @@ export const login = (userData, history) => (dispatch) => {
     })
 }
 
+export const logout = (history) => {
+  localStorage.removeItem('token')
+  history.push('/')
+}
+
 export const setLoading = (isLoading) => ({
   type: LOADING,
   payload: isLoading,
