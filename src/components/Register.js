@@ -63,11 +63,11 @@ const Register = (props) => {
 
   return (
     <div>
-      {userState.isLoading && <CircularProgress />}
       <Typography align='center' variant='h6' gutterBottom>
         Create an account
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>
+        {userState.isLoading && <CircularProgress />}
         <FormControl>
           <InputLabel htmlFor='user-email'>Email</InputLabel>
           <Input
