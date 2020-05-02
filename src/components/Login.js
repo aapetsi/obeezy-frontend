@@ -60,12 +60,11 @@ const Login = (props) => {
 
   return (
     <div>
-      {userState.isLoading && <CircularProgress />}
-
       <Typography align='center' variant='h6' gutterBottom>
         Login to your account
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>
+        {userState.isLoading && <CircularProgress />}
         <FormControl>
           <InputLabel htmlFor='user-email'>Email</InputLabel>
           <Input
