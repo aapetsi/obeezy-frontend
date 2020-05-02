@@ -45,7 +45,9 @@ const Login = (props) => {
   const [user, setUser] = useState({ email: '', password: '' })
 
   const handleChange = (e) => {
-    dispatch(clearErrors())
+    if (userState.errors.message) {
+      dispatch(clearErrors())
+    }
     setUser({ ...user, [e.target.name]: e.target.value })
   }
 
