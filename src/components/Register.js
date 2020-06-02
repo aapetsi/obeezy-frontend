@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     width: '400px'
   },
   btn: {
-    marginTop: '10%',
+    marginTop: '5%',
     marginBottom: '10%'
   },
   error: {
