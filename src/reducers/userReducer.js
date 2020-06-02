@@ -3,14 +3,14 @@ import {
   LOADING,
   SET_ERRORS,
   CLEAR_ERRORS,
-  LOGIN,
+  LOGIN
 } from '../action-types'
 
 const initialState = {
   userInfo: {},
   isLoading: false,
   isLoggedin: false,
-  errors: {},
+  errors: {}
 }
 
 const userReducer = (state = initialState, action) => {
@@ -19,32 +19,32 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         userInfo: action.payload,
-        isLoggedin: true,
+        isLoggedin: true
       }
 
     case LOGIN:
       return {
         ...state,
         userInfo: action.payload,
-        isLoggedin: true,
+        isLoggedin: true
       }
 
     case LOADING:
       return {
         ...state,
-        isLoading: action.payload,
+        isLoading: action.payload
       }
 
     case SET_ERRORS:
       return {
         ...state,
-        errors: { ...action.payload },
+        errors: { ...action.payload }
       }
 
     case CLEAR_ERRORS:
       return {
         ...state,
-        errors: {},
+        errors: {}
       }
 
     default:

@@ -3,7 +3,7 @@ import {
   LOADING,
   SET_ERRORS,
   CLEAR_ERRORS,
-  LOGIN,
+  LOGIN
 } from '../action-types'
 import axios from 'axios'
 
@@ -56,14 +56,14 @@ export const logout = (history) => {
 
 export const setLoading = (isLoading) => ({
   type: LOADING,
-  payload: isLoading,
+  payload: isLoading
 })
 
 export const setErrors = (errors) => ({
   type: SET_ERRORS,
-  payload: errors,
+  payload: errors
 })
 
 export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
+  type: CLEAR_ERRORS
 })

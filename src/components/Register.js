@@ -8,7 +8,7 @@ import {
   Typography,
   InputLabel,
   Input,
-  InputAdornment,
+  InputAdornment
 } from '@material-ui/core'
 import { AccountCircle, AlternateEmail, Lock } from '@material-ui/icons'
 import { register, clearErrors } from '../actions'
@@ -22,18 +22,19 @@ const useStyles = makeStyles({
     marginTop: '30px',
     padding: '20px',
     textAlign: 'center',
-    boxShadow: '0px 0px 11px -2px rgba(0,0,0,0.55)',
+    boxShadow: '0px 0px 11px -2px rgba(0,0,0,0.55)'
   },
   inputs: {
-    marginBottom: '15px',
+    marginBottom: '30px',
+    width: '400px'
   },
   btn: {
-    marginTop: '20%',
-    marginBottom: '20%',
+    marginTop: '10%',
+    marginBottom: '10%'
   },
   error: {
-    color: 'red',
-  },
+    color: 'red'
+  }
 })
 
 const Register = (props) => {
@@ -46,7 +47,7 @@ const Register = (props) => {
     username: 'johndoe',
     email: 'johndoe@gmail.com',
     password: '123456',
-    password2: '123456',
+    password2: '123456'
   })
 
   const handleChange = (e) => {
@@ -99,7 +100,7 @@ const Register = (props) => {
             className={classes.inputs}
             onChange={handleChange}
             name='username'
-            required={true}
+            required
             value={user.username}
             id='user-username'
             startAdornment={
@@ -121,7 +122,7 @@ const Register = (props) => {
             className={classes.inputs}
             onChange={handleChange}
             name='password'
-            required={true}
+            required
             value={user.password}
             id='user-password'
             type='password'
@@ -146,7 +147,7 @@ const Register = (props) => {
             className={classes.inputs}
             onChange={handleChange}
             name='password2'
-            required={true}
+            required
             value={user.password2}
             type='password'
             startAdornment={

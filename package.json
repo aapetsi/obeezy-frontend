@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel public/index.html",
-    "build": "parcel build public/index.html --out-dir=build"
+    "build": "parcel build public/index.html --out-dir=build",
+    "lint": "standard --fix --verbose | snazzy"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.11",
@@ -24,6 +25,11 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "^7.9.4"
+    "@babel/preset-react": "^7.9.4",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.4"
+  },
+  "standard": {
+    "globals": ["localStorage"]
   }
 }

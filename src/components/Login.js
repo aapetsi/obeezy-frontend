@@ -7,7 +7,7 @@ import {
   Typography,
   InputLabel,
   Input,
-  InputAdornment,
+  InputAdornment
 } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearErrors, login } from '../actions'
@@ -22,19 +22,19 @@ const useStyles = makeStyles({
     marginTop: '30px',
     padding: '20px',
     textAlign: 'center',
-    boxShadow: '0px 0px 11px -2px rgba(0,0,0,0.55)',
+    boxShadow: '0px 0px 11px -2px rgba(0,0,0,0.55)'
   },
   inputs: {
     marginBottom: '30px',
-    width: '400px',
+    width: '400px'
   },
   btn: {
     marginTop: '10%',
-    marginBottom: '10%',
+    marginBottom: '10%'
   },
   error: {
-    color: 'red',
-  },
+    color: 'red'
+  }
 })
 
 const Login = (props) => {
