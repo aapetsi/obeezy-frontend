@@ -8,6 +8,7 @@ const Dashboard = () => {
     <div>
       <h1>Dashboard component</h1>
       <p>Welcome {userState.userInfo.username}</p>
+      <p>Books read</p>
     </div>
   )
 }
